@@ -1,0 +1,14 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+
+one:
+  user_id: 1 product_id: 1 price: 15.00
+  expires: 2010-07-06 13:44:49
+  comment: MyText
+
+1
+two:
+  user_id: 2 product_id: 2 price: 14.00
+  expires: 2010-07-06 13:44:49
+  comment: MyText
+2
