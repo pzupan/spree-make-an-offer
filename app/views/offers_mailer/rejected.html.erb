@@ -1,0 +1,19 @@
+Sorry!  Your offer on the <%= @offer.product.name %> has been REJECTED.  
+
+============================================================
+Offer Summary
+============================================================
+Name: <%= @offer.product.name %>
+
+List Price: <%= @offer.product.price %>
+ 
+Offer Price: <%= @offer.price %>
+ 
+Offer Expires: <%= @offer.expires_at.strftime('%m/%d/%Y') %>
+ 
+Offer Created: <%= @offer.created_at.strftime('%m/%d/%Y') %>
+    
+============================================================
+<%= @offer.comment %>
+
+Thank you for using <%= Spree::Config[:site_name] %>.

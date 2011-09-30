@@ -1,0 +1,27 @@
+---
+en: 
+  make_offer: "Make Offer"
+  update_offer: "Update Offer"
+  offer_price: "Offer Price"
+  offer_expires_at: "Offer Expires"
+  or_make_an_offer!: "Or Make an Offer!"
+  your_current_offer: "Your Current Offer"
+  highest_offer: "Highest Offer:"
+  previous_high_offer: "Highest Previous Offer:"
+  offer_rejected_validation_previous_price: 'Offer Rejected: Your offer must exceed any previous offer!'
+  offer_rejected_validation_0: 'Offer Rejected: Your offer must be greater than 0!'
+  offer_has_been_submitted: 'Your offer has been submitted.'
+  offer_error_not_submitted: 'An error has occurred: Your offer has not been submitted.'
+  offer_error_not_signed_in: 'Error: You must be signed in to make an offer.'
+  notified_by_email_on_acceptance: 'You will be notified by email <br /> if your offer is accepted.'
+  my_offers: 'My Offers'
+  list_price: 'List Price'
+  expires: 'Expires'
+  created: 'Created'
+  comments: 'Comments'
+  offers: 'Offers'
+  accept: 'Accept'
+  reject: 'Reject'
+  accepted: 'Accepted'
+  rejected: 'Rejected'
+  offers_description: 'Pending Offers'

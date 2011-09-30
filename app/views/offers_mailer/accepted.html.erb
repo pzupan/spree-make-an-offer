@@ -1,0 +1,18 @@
+Congratulations. Your offer on the <%= @offer.product.name %> has been ACCEPTED.  
+
+============================================================
+Offer Summary
+============================================================
+Name: <%= @offer.product.name %> 
+
+List Price: <%= @offer.product.price %> 
+
+Offer Price: <%= @offer.price %> 
+
+Offer Expires: <%= @offer.expires_at.strftime('%m/%d/%Y') %> 
+
+Offer Created: <%= @offer.created_at.strftime('%m/%d/%Y') %>    
+
+============================================================
+
+Please log into <%= Spree::Config[:site_name] %> and click on 'Cart' to complete your purchase of the above item.

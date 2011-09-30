@@ -1,0 +1,60 @@
+<% hook :offer_form do %>
+	<% if !@offer.product_id.nil? || @product.has_stock?  %>
+		<%= render :partial => 'offers_style' %>
+ 		<%= render :partial => 'offers_js' %>
+		<% form_tag('/make_an_offer', :method => :post) do %>
+			<%= hidden_field_tag 'offer_id', (@offer.id.nil? ? nil : @offer.id) %>
+			<%= hidden_field_tag 'offer_product_id', @product.id %>
+			<%= hidden_field_tag 'offer_variant_id', @product.master.id %>
+			<%= hidden_field_tag 'offer_previous_price', (@previous.nil? ? '0.00' : @previous.price) %>
+			<%= hidden_field_tag 'offer_permalink', (@product.permalink) %>
+
+		   	<div id="cart-form">
+    			<br />
+		   		<p class="prices">
+		   			<% if @offer.product_id.nil? %>
+		    			<h3><%= t("or_make_an_offer!") %></h3>
+		    			<%= (@previous.nil? ? '' : '<p>' + t('previous_high_offer') + ' <span class="price selling">' + product_price(@previous) + '</span></p>') %>
+		    		<% else %>
+		    			<%= (@previous.nil? ? '' : '<p>' + t('highest_offer') + ' <span class="price selling">' + product_price(@previous) + '</span></p>') %>
+		    			<h3><%= t("your_current_offer") %></h3>
+		    			<p align='center'><%= offer_status(@offer)%></p>
+		    		<% end %>
+	    			<div style="float: left;">
+    					<%= label_tag 'offer_price', t('offer_price') %><br />
+    					<% if @offer.accepted_at.nil? %>
+			   				<%= text_field_tag 'offer_price', number_with_precision(@offer.price, :precision => 2), :class => "title", :size => 8 %>
+			   			<% else %>
+			   				<%= product_price @offer %>
+			   			<% end %>
+			   			<br />
+    					<% if @offer.accepted_at.nil? %>
+	    					<%= label_tag 'offer_expires_at', t('offer_expires_at') %><br />
+	        				<%= text_field_tag 'offer_expires_at', @offer_expires_at, :size => 10, :class => "date-pick" %>
+			   			<% end %>
+        				
+    				</div>
+   					<% if @offer.accepted_at.nil? %>
+	    				<div style="float: right;">
+    						<br />
+	    					<button type='submit' class='large primary'>
+	    						<%= image_tag('/images/update.png') + t((@offer.product_id.nil? ? 'make_offer' : 'update_offer')) %></button>
+	    				</div>
+					<% end %>
+   	    		</p>
+   			</div>
+	  	<% end %>
+	<% end %> 
+<% end %> 
+
+<% content_for :head do %>
+	<!-- page specific scripts for datePicker -->
+		<script type="text/javascript" charset="utf-8">
+            Date.firstDayOfWeek = 0;
+			Date.format = 'mm/dd/yyyy';
+            $(function()
+            {
+				$('.date-pick').datePicker();
+            });
+		</script>
+<% end %>
