@@ -1,0 +1,32 @@
+<% hook :account_my_offers do %>
+
+<h2><%= t("my_offers") %></h2>
+ 
+<table class="order-summary" width="545">
+  <thead>
+    <tr>
+      <th><%= t("product") %></th>
+      <th><%= t("list_price") %></th>
+      <th><%= t("offer_price") %></th>
+      <th><%= t("expires") %></th>
+      <th><%= t("created") %></th>
+      <th><%= t("comments") %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @offers.each do |offer| %>
+    <tr class="<%= cycle('even', 'odd') %>">
+      <td><%= link_to offer.product.name, product_url(offer.product.permalink) %></td>
+      <td><%= product_price offer.product %></td>
+      <td><%= product_price offer %></td>
+      <td><%= offer.expires_at.strftime('%m/%d/%Y') %></td>
+      <td><%= offer.created_at.strftime('%m/%d/%Y') %></td>
+      <td><%= offer.comment %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+ 
+<br />
+
+<% end %>

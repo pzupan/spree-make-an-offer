@@ -1,0 +1,58 @@
+<%= render :partial => 'admin/shared/configuration_menu' %>
+
+<h1><%= "#{t("actions.listing")} #{t("offers")}" %></h1>
+
+<table class="index" width="545">
+	<thead>
+		<tr>
+			<th>
+				<%=t("email")%>
+			</th>
+			<th>
+				<%=t("product")%>
+			</th>
+			<th>
+				<%=t("list_price")%>
+			</th>
+			<th>
+				<%=t("offer_price")%>
+			</th>
+			<th>
+				<%=t("created")%>
+			</th>
+			<th>
+				<%=t("expires")%>
+			</th>
+			<th>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @offers.each do |offer| %>
+		<tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id offer %>" >
+			<td>
+				<%= offer.user.email %>   
+			</td>
+			<td>
+				<%= link_to offer.product.name, product_path(offer.product.permalink) %>
+			</td>
+			<td>
+				<%= number_to_currency offer.product.price %>
+			</td>
+			<td>
+				<%= number_to_currency offer.price %>
+			</td>
+			<td>
+				<%= offer.created_at.strftime('%m/%d/%Y') %>
+			</td>
+			<td>
+				<%= offer.expires_at.strftime('%m/%d/%Y') %>
+			</td>
+			<td>
+				<%= offer_status(offer) %>
+			</td>
+		</tr><% end %>
+	</tbody>
+</table>
+ <%= will_paginate(:previous_label => "&#171; #{t('previous')}", :next_label => "#{t('next')} &#187;") %>
+ 
