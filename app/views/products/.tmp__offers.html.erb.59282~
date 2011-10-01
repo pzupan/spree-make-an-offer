@@ -1,9 +1,9 @@
-<%= hook :offer_form do %>
+<% hook :offer_form do %>
+<% debugger %>
 	<% if !@offer.product_id.nil? || @product.has_stock?  %>
 		<%= render :partial => 'offers_style' %>
  		<%= render :partial => 'offers_js' %>
 		<%= form_tag('/make_an_offer', :method => :post) do %>
-		
 			<%= hidden_field_tag 'offer_id', (@offer.id.nil? ? nil : @offer.id) %>
 			<%= hidden_field_tag 'offer_product_id', @product.id %>
 			<%= hidden_field_tag 'offer_variant_id', @product.master.id %>

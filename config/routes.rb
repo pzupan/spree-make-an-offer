@@ -1,14 +1,12 @@
-# Put your extension routes here.
+Rails.application.routes.draw do
+  
+  resources :make_an_offer, :only => :create
 
-# map.namespace :admin do |admin|
-#   admin.resources :whatever
-# end  
+  namespace :admin do 
+    resources :offers
+  end
 
-map.resources :make_an_offer, :only => [:create]
+  match 'admin/offers/accepted/:offer_id' => 'admin/offers#accepted', :as => :accepted_admin_offers 
+  match 'admin/offers/rejected/:offer_id' => 'admin/offers#rejected', :as => :rejected_admin_offers
 
-map.namespace :admin do |admin|
-  admin.resources :offers
 end
-
-map.accepted_admin_offers 'admin/offers/accepted/:offer_id', :controller => 'admin/offers', :action => 'accepted'
-map.rejected_admin_offers 'admin/offers/rejected/:offer_id', :controller => 'admin/offers', :action => 'rejected'

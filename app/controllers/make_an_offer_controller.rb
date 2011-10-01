@@ -11,17 +11,16 @@ class MakeAnOfferController < ApplicationController
         flash[:error] = t('offer_rejected_validation_previous_price')
       else
         if params[:offer_id].to_i == 0 or params[:offer_id].nil? 
-          @offer = Offers.new
-          @offer.user_id = current_user.id
-          @offer.product_id = params[:offer_product_id]
-          @offer.variant_id = params[:offer_variant_id]
+          @offer = Offer.new(:user_id => current_user.id, 
+            :product_id => params[:offer_product_id], 
+            :variant_id => params[:offer_variant_id])
         else
-          @offer = Offers.find(params[:offer_id].to_i)
+          @offer = Offer.find(params[:offer_id])
         end
         @offer.price = params[:offer_price]
         @offer.expires_at = params[:offer_expires_at]
         if @offer.save
-          OffersMailer.deliver_pending(@offer)
+          OfferMailer.deliver_pending(@offer)
           flash[:notice] = t('offer_has_been_submitted')
         else
           flash[:error] = t('offer_error_not_submitted')

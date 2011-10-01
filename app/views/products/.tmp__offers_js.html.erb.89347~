@@ -1,5 +1,5 @@
 <% content_for :head do -%>
-  <%= javascript_include_tag 'datepicker.js' %>
+  <%= javascript_include_tag 'jquery.datePicker.js' %>
   <%= javascript_include_tag 'date.js' %>
   <!--[if IE]><%= javascript_include_tag 'jquery.bgiframe.js' %><![endif]-->
 <% end -%>
