@@ -1,4 +1,4 @@
-class OfferMailer < ActionMailer::QueueMailer
+class OfferMailer < ActionMailer::Base
   helper "spree/base"
   
   def pending(offer)
