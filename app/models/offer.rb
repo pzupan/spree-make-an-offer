@@ -12,6 +12,6 @@ class Offer < ActiveRecord::Base
   named_scope :product_offers, lambda { |product_id|
     {:conditions => {:product_id => product_id}}
   }
-  named_scope :pending_offers, {:conditions => ['expires_at >= "' + Date.today.to_s(:db) + '"']}
+  named_scope :pending_offers, {:conditions => ['offers.expires_at >= "' + Date.today.to_s(:db) + '"']}
 
 end
