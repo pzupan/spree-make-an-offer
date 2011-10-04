@@ -3,7 +3,7 @@ class Admin::OffersController < Admin::BaseController
 
   def index
     @offers = Offer.pending_offers.paginate(:all, 
-      :include => :users,
+      :include => :user,
       :order => 'users.created_at, users.product_id',
       :page => params[:page])
   end
