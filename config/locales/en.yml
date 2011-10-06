@@ -13,7 +13,7 @@ en:
   offer_has_been_submitted: 'Your offer has been submitted.'
   offer_error_not_submitted: 'An error has occurred: Your offer has not been submitted.'
   offer_error_not_signed_in: 'Error: You must be signed in to make an offer.'
-  notified_by_email_on_acceptance: 'You will be notified by email <br /> if your offer is accepted.'
+  notified_by_email_on_acceptance: 'You will be notified by email if your offer is accepted.'
   my_offers: 'My Offers'
   list_price: 'List Price'
   expires: 'Expires'

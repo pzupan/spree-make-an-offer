@@ -15,9 +15,9 @@
 		   		<p class="prices">
 		   			<% if @offer.product_id.nil? %>
 		    			<h3><%= t("or_make_an_offer!") %></h3>
-		    			<%= (@previous.nil? ? '' : '<p>' + t('previous_high_offer') + ' <span class="price selling">' + product_price(@previous) + '</span></p>') %>
+		    			<%= (@previous.nil? ? '' : '<p>' + t('previous_high_offer') + ' <span class="price selling">' + product_price(@previous) + '</span></p>').html_safe %>
 		    		<% else %>
-		    			<%= (@previous.nil? ? '' : '<p>' + t('highest_offer') + ' <span class="price selling">' + product_price(@previous) + '</span></p>') %>
+		    			<%= (@previous.nil? ? '' : '<p>' + t('highest_offer') + ' <span class="price selling">' + product_price(@previous) + '</span></p>').html_safe %>
 		    			<h3><%= t("your_current_offer") %></h3>
 		    			<p align='center'><%= offer_status(@offer)%></p>
 		    		<% end %>
